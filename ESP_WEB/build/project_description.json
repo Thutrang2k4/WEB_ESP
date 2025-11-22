@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ESP_WEB",
-    "project_version":    "687a3d2",
+    "project_version":    "38169ba-dirty",
     "project_path":       "D:/WEB ESP/ESP_WEB",
     "idf_path":           "C:/Users/LENOVO/esp/v5.5.1/esp-idf",
     "build_dir":          "D:/WEB ESP/ESP_WEB/build",
