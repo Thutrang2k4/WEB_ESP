@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 RGB Control</title>
+    <meta charset="UTF-8">
+    <style>
+        body { text-align:center; font-family:Arial; padding:40px; background:#f5f5f5;}
+        h1 { color:#333; }
+        button { padding:15px 30px; font-size:18px; margin:10px; cursor:pointer; }
+        .red {background:#e74c3c;color:white;}
+        .green {background:#2ecc71;color:white;}
+        .blue {background:#3498db;color:white;}
+        .off {background:#555;color:white;}
+    </style>
+</head>
+<body>
+    <h1>ESP32 RGB Control (Demo)</h1>
+    <button class="red" onclick="send('red')">RED</button>
+    <button class="green" onclick="send('green')">GREEN</button>
+    <button class="blue" onclick="send('blue')">BLUE</button>
+    <button class="off" onclick="send('off')">OFF</button>
+
+    <script>
+        function send(color){
+            alert('Bạn đã nhấn nút ' + color + '. Sau này JS sẽ gửi lệnh đến ESP32');
+        }
+    </script>
+</body>
+</html>
