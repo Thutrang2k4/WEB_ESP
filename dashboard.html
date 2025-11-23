@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BKByte Solar</title><style>
+body{margin:0;font-family:Arial;background:#0A1D37;color:#fff}
+.h{background:#0A3D62;padding:20px;text-align:center;font-size:24px;color:#fff;font-weight:bold}
+.c{padding:20px}
+.card{background:#16213E;border-radius:15px;padding:25px;margin:15px 0;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.b{text-align:center;padding:25px;background:#1e2a47;border-radius:15px}
+.big{font-size:52px;font-weight:bold;margin:15px 0;color:#FFB84D}
+.l{font-size:18px;opacity:0.85}
+.pv{color:#FFB84D}.grid{color:#2ECC71}.today{color:#00D9FF}.total{color:#9B59B6}
+.btn{background:#E63946;color:#fff;border:none;padding:20px;border-radius:15px;font-size:22px;width:100%;margin-top:30px;cursor:pointer;font-weight:bold}
+@media(max-width:768px){.g{grid-template-columns:1fr}}
+</style></head><body>
+<div class="h">BKIT - BKByte | Hoa Sita Cafe</div>
+<div class="c">
+  <div class="card g">
+    <div class="b"><div class="l">PV Input</div><div class="big pv" id="v">382.1</div><div>V</div><div class="big pv" id="a">8.4</div><div>A</div></div>
+    <div class="b"><div class="l">Grid Output</div><div class="big grid" id="kw">3.2</div><div>kW</div><div>220V 50Hz</div></div>
+  </div>
+  <div class="card"><div class="b today"><div class="l">Hôm nay</div><div class="big">16.8 kWh</div></div></div>
+  <div class="card"><div class="b total"><div class="l">Tổng cộng</div><div class="big">1,258.3 kWh</div></div></div>
+  <button class="btn" onclick="location.href='config.html'">CẤU HÌNH & OTA</button>
+</div>
+<script>
+setInterval(()=>{fetch('/api/data').then(r=>r.json()).then(d=>{
+  document.getElementById('v').textContent = d.pv_v || '---';
+  document.getElementById('a').textContent = d.pv_a || '---';
+  document.getElementById('kw').textContent = d.ac_kw || '---';
+}).catch(()=>{})}, 3000);
+</script>
+</body></html>
